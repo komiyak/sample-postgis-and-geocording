@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2019_01_05_151841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "postgis"
 
   create_table "comments", force: :cascade do |t|
     t.text "title", null: false
@@ -23,8 +24,10 @@ ActiveRecord::Schema.define(version: 2019_01_05_151841) do
 
   create_table "users", id: :serial, force: :cascade do |t|
     t.string "username", limit: 8, null: false
+    t.geometry "location", limit: {:srid=>0, :type=>"geometry"}, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["location"], name: "index_users_on_location", using: :gist
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
