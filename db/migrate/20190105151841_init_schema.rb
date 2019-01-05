@@ -5,5 +5,11 @@ class InitSchema < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+
+    create_table :comments do |t|
+      t.text :title, null: false
+
+      t.timestamps
+    end
   end
 end

@@ -15,6 +15,12 @@ ActiveRecord::Schema.define(version: 2019_01_05_151841) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "comments", force: :cascade do |t|
+    t.text "title", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", id: :serial, force: :cascade do |t|
     t.string "username", limit: 8, null: false
     t.datetime "created_at", null: false
