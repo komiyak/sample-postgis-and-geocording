@@ -28,3 +28,4 @@ test:
 production:
   <<: *default
   database: sample-postgis-and-geocording
+  url: <%= ENV.fetch('DATABASE_URL', '').sub(/^postgres/, 'postgis') %>
