@@ -70,6 +70,16 @@ class SampleDataTask
         location_name: '平尾',
         state: :available
       )
+
+      # サンプルデータ
+      3000.times do |index|
+        User.create!(
+              username: "#{index}-u",
+              location: 'POINT(43.630583 142.330148)',
+              location_name: '北海道旭川',
+              state: (index % 2) == 0 ? :available : :deleted
+        )
+      end
     end
   end
 end
