@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 2019_01_05_151841) do
   create_table "users", id: :serial, force: :cascade do |t|
     t.string "username", limit: 8, null: false
     t.geometry "location", limit: {:srid=>0, :type=>"geometry"}, null: false
+    t.string "location_name", limit: 8, null: false
+    t.integer "state", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["location"], name: "index_users_on_location", using: :gist
