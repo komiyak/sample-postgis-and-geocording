@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2019_01_05_151841) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["location"], name: "index_users_on_location", using: :gist
+    t.index ["state"], name: "index_users_on_state"
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
